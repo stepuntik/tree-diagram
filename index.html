@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Tree Diagram</title>
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/firebase@5.5.2/firebase-app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/firebase@5.5.2/firebase-firestore.js"></script>
+    <script>
+      const config = {
+        apiKey: 'AIzaSyBxfaPmDoEE-RDjmqVu9e16LEpUhJRacfA',
+        authDomain: 'd3-firebase-8d3b0.firebaseapp.com',
+        projectId: 'd3-firebase-8d3b0',
+        storageBucket: 'd3-firebase-8d3b0.appspot.com',
+        messagingSenderId: '887018770815',
+        appId: '1:887018770815:web:e9746b44f89cfc2b49ca4a',
+      };
+      firebase.initializeApp(config);
+      const db = firebase.firestore();
+      const settings = { timestampsInSnapshots: true };
+      db.settings(settings);
+    </script>
+
+    <!-- D3 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.0.0/d3.js"></script>
+    <script src="index.js"></script>
+    <script src="graph.js"></script>
+  </body>
+</html>
