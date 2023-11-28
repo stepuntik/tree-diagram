@@ -6,7 +6,7 @@ const svg = d3
   .attr('width', dims.width + 100)
   .attr('height', dims.height + 100);
 
-const graph = svg.append('g').attr('transorm', 'translate(50, 50)');
+const graph = svg.append('g').attr('transform', 'translate(50, 50)');
 
 // data strat (to convert data to hierarchy format)
 const stratify = d3
@@ -18,6 +18,10 @@ const tree = d3.tree().size([dims.width, dims.height]);
 
 //////////////////// UPDATE function ///////////////////////////
 const update = (data) => {
+  // remove current nodes
+  graph.selectAll('.node').remove();
+  graph.selectAll('.link').remove();
+
   // get updated root Node data
   const rootNode = stratify(data);
 
@@ -33,7 +37,6 @@ const update = (data) => {
   links
     .enter()
     .append('path')
-    .duration(300)
     .attr('class', 'link')
     .attr('fill', 'none')
     .attr('stroke', '#aaa')
@@ -60,7 +63,11 @@ const update = (data) => {
     .attr('stroke', '#555')
     .attr('stroke-width', 2)
     .attr('height', 50)
-    .attr('width', (d) => d.data.name.length * 20);
+    .attr('width', (d) => d.data.name.length * 20)
+    .attr('transform', (d) => {
+      const x = d.data.name.length * 10;
+      return `translate(${-x}, -30)`;
+    });
 
   // append name text
   enterNodes
