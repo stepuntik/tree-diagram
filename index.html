@@ -12,9 +12,49 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
     <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <title>Tree Diagram</title>
   </head>
   <body>
+    <div class="pink section">
+      <h2 class="white-text center">Awesome Corp</h2>
+    </div>
+
+    <div class="grey lighten-3 section grey-text" style="position: relative">
+      <p class="flow-text center">The Number ONE Company</p>
+      <a
+        href="#modal"
+        class="btn-floating btn-large halfway-fab pink modal-trigger"
+      >
+        <i class="material-icons">add</i>
+      </a>
+    </div>
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <h4 class="pink-text center">Add New Employee</h4>
+        <form>
+          <div class="input-field">
+            <input type="text" id="name" placeholder="Employee Name" />
+          </div>
+          <div class="input-field">
+            <input type="text" id="parent" placeholder="Reports to..." />
+          </div>
+          <div class="input-field">
+            <input type="text" id="department" placeholder="Department" />
+          </div>
+          <div class="input-field">
+            <button class="btn pink white-text">Add Employee</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="canvas"></div>
+    </div>
+
+    <!-- scripts -->
     <script src="https://cdn.jsdelivr.net/npm/firebase@5.5.2/firebase-app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/firebase@5.5.2/firebase-firestore.js"></script>
     <script>
